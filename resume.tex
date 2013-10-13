@@ -1,0 +1,94 @@
+\documentclass[10pt,a4paper,sans]{moderncv}
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+\renewcommand{\familydefault}{\sfdefault}
+\nopagenumbers{}
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.75]{geometry}
+
+\firstname{Jean-Marie}
+\familyname{Lemetayer}
+\title{Ingénieur Systèmes Embarqués}
+\address{51 Boulevard Victor Hugo}{06130 Gasse}
+\mobile{+33 615 327 374}
+\phone{+33 980 690 024}
+\email{jeanmarie.lemetayer@gmail.com}
+\homepage{github.com/jmlemetayer}
+\extrainfo{26 ans}
+\photo[64pt][0.4pt]{id}
+
+\begin{document}
+\makecvtitle
+
+\section{Expérience}
+\subsection{Professionnelle}
+\cventry{2012--2013}{Intégration Wi-Fi sur Android}{Intel Corporation}{Sophia Antipolis}{via Elsys-Design}{
+	Intégration et développment de la partie conectivité Wi-Fi sur les platformes Intel Android.
+	\begin{itemize}
+		\item Intégration du Wi-Fi lors des mise à jour d'Android.
+		\item Résolution de bugs à différents niveaux.
+		\item Certification du Wi-Fi:
+		\begin{itemize}
+			\item Installation des environements de certification: 11N, P2P, WFD \dots
+			\item Développement de l'automatisation (sigma agent).
+		\end{itemize}
+		\item Création d'un environement de test:
+		\begin{itemize}
+			\item Architecture du réseau de test.
+			\item Installation des serveurs: DHCP, DNS, RADIUS, HTTP, FTP, RADVD \dots
+			\item Création d'interfaces web: Gestionnaire d'AP, Configuration IPv6 \dots
+		\end{itemize}
+	\end{itemize}
+}
+\cventry{2010--2012}{Développement Système Embarqué}{Faiveley Transport}{Rennes}{via Elsys-Design}{
+	Couche applicative de commande d'ouverture de porte de train.
+	\begin{itemize}
+		\item Implémentation d'une architecture spécifié.
+		\item Relecture de code, en vue d'une certification SIL2.
+		\item Gestion et développement d'un second projet:
+		\begin{itemize}
+			\item Spécification de l'architecure.
+			\item Dévelopement et documention.
+			\item Tests sur maquette.
+		\end{itemize}
+	\end{itemize}
+}
+
+\subsection{Divers}
+\cventry{2010 (6 mois)}{Portage d'Android sur un Tablet PC}{Altran}{Rennes}{Projet de fin d'études}{
+	\begin{itemize}
+		\item Intégration du kernel Linux pour le processeur ST Nomadik 8815.
+		\item Modification de drivers Linux. Support de la NAND, du LCD \dots
+		\item Patch du kernel pour l'intégration d'Android: Binder, Logger, Low memory killer \dots
+		\item Mise en place d'un Rootfs Busybox puis de celui d'android.
+	\end{itemize}
+}
+\cventry{2009 (2 mois)}{Étude du noyau Xenomai}{ENSEIRB-MATMECA}{Bordeaux}{Projet avancé}{
+	\begin{itemize}
+		\item Mise en \oe{}uvre de Xenomai sur PC x86.
+		\item Étude du portage de Xenomai sur un autre processeur.
+	\end{itemize}
+}
+\cventry{2009 (4 mois)}{R\&D dans la domotique}{Delta-Dore SA}{Bonnemain}{Stage}{
+	\begin{itemize}
+		\item Étude de la technologie RDS avec une carte de développement. Création d'un programme de mise à jour automatique de l'heure via RDS.
+		\item Étude du Wi-Fi. Création d'une passerelle Wi-Fi -- PF3D (protocole de domotique).
+	\end{itemize}
+}
+
+\clearpage
+
+\section{Éducation}
+\cventry{2007--2010}{Diplôme d'Ingénieur Électronique}{ENSEIRB-MATMECA}{Bordeaux}{}{Option Systèmes Embarqués.}
+\cventry{2005--2007}{CPGE}{Lycée Chateaubriand}{Rennes}{}{PCSI, suivi de PSI.}
+\cventry{2003--2005}{Baccalauréat Scientifique}{Lycée Chateaubriand}{Combourg}{}{Option Maths.}
+
+\section{Langues}
+\cvitemwithcomment{Anglais}{Courant}{TOEIC 795 (2009)}
+
+\section{Compétences Informatiques}
+\cvdoubleitem{Programmation}{C (expert), C++ (avancé)}{Script}{Shell (expert), Python}
+\cvdoubleitem{OS}{GNU/Linux, Android}{Web}{HTML/CSS, PHP, Javascipt}
+\cvitem{Mes outils}{VI, GIT, SVN, GCC, GDB, Valgrind}
+
+\end{document}
