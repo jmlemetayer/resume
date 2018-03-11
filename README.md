@@ -11,7 +11,7 @@ First, you will need to install latex and the [moderncv][1] package.
 
 Then just run:
 
-    pdflatex resume.tex
+    pdflatex resume_fr.tex
 
 ### License
 
