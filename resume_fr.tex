@@ -1,102 +1,280 @@
-\documentclass[10pt,a4paper,sans]{moderncv}
-\moderncvstyle{classic}
-\moderncvcolor{blue}
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% moderncv themes
+\moderncvstyle{casual}
+\moderncvcolor{grey}
 \renewcommand{\familydefault}{\sfdefault}
-\nopagenumbers{}
-\usepackage[utf8]{inputenc}
+
+% character encoding
+%\usepackage[utf8]{inputenc}
+
+% adjust the page margins
 \usepackage[scale=0.75]{geometry}
+\setlength{\hintscolumnwidth}{3cm}
 
-\firstname{Jean-Marie}
-\familyname{Lemetayer}
+% social
+\makeatletter
+\newcommand*{\gitlabsocialsymbol}{{\small\faGitlab}~}
+\newcommand*{\stackoveflowsocialsymbol}{{\small\faStackOverflow}~}
+\RenewDocumentCommand{\social}{O{}O{}m}{
+	\ifthenelse{\equal{#2}{}}
+	{
+		\ifthenelse{\equal{#1}{linkedin}}
+			{\collectionadd[linkedin]{socials}
+			{\protect\httplink[#3]{linkedin.com/in/#3}}}{}
+		\ifthenelse{\equal{#1}{github}}
+			{\collectionadd[github]{socials}
+			{\protect\httplink[#3]{github.com/#3}}}{}
+		\ifthenelse{\equal{#1}{gitlab}}
+			{\collectionadd[gitlab]{socials}
+			{\protect\httplink[#3]{gitlab.com/#3}}}{}
+		\ifthenelse{\equal{#1}{stackoveflow}}
+			{\collectionadd[stackoveflow]{socials}
+			{\protect\httplink[#3]{stackoverflow.com/users/#3}}}{}
+	}
+	{\collectionadd[#1]{socials}{\protect\httplink[#3]{#2}}}}
+\makeatother
+
+% personal data
+\name{Jean-Marie}{LEMETAYER}
 \title{Ingénieur Systèmes Embarqués}
-\address{13 Rue du Blavet}{35830 Betton}
+\address{14 rue d'Helsinki}{35830 Betton}
 \mobile{+33 615 327 374}
-\phone{+33 980 690 024}
 \email{jeanmarie.lemetayer@gmail.com}
-\homepage{github.com/jmlemetayer}
-\extrainfo{26 ans}
-\photo[64pt][0.4pt]{id}
+\homepage{jml.bzh}
+\social[github]{jmlemetayer}
+\social[gitlab]{jmlemetayer}
+\social[linkedin]{jmlemetayer}
+\social[stackoveflow]{2893600/jml}
+\photo[72pt][0.6pt]{id.jpg}
 
+% content
 \begin{document}
 \makecvtitle
 
 \section{Expérience}
 \subsection{Professionnelle}
-\cventry{2013--2014}{Expertise Wi-Fi sur une set-top box}{Sagemcom}{Rueil-Malmaison}{via Elsys-Design}{
-	Intégration et développement du software sur une set-top box et expertise de la partie Wi-Fi.
-	\begin{itemize}
-		\item Utilisation de Buildroot.
-		\item Résolution de bugs sur la partie Wi-Fi.
-		\item Préparation de la certification du Wi-Fi.
-	\end{itemize}
-}
-\cventry{2012--2013}{Intégration Wi-Fi sur Android}{Intel Corporation}{Sophia Antipolis}{via Elsys-Design}{
-	Intégration et développement de la partie connectivité Wi-Fi sur les plateformes Intel Android.
-	\begin{itemize}
-		\item Intégration du Wi-Fi lors des mise à jour d'Android.
-		\item Résolution de bugs à différents niveaux.
-		\item Certification du Wi-Fi:
+\cventry{Décembre 2020 \\ Present}
+	{Ingénieur Systèmes Embarqués}
+	{NXP}
+	{Rennes}
+	{\textit{au nom de Elsys-Design}}
+	{
 		\begin{itemize}
-			\item Installation des environnements de certification: 11N, P2P, WFD \dots
-			\item Développement de l'automatisation (sigma agent).
+		\item Architecture et développement de l'application de mise à
+			jour du firmware dans la bootrom d'une nouvelle puce
+			\href{https://en.wikipedia.org/wiki/Ultra-wideband}{UWB}
+			en cours de développement
+		\item Développement des tests unitaires pour les couches
+			protocolaires (simulation RTL)
+		\item Développement des tests système de la mise à jour du
+			firmware (cible FPGA)
 		\end{itemize}
-		\item Création d'un environnement de test:
+		\textit{Git},
+		\textit{C}, \textit{Python}
+	}
+\cventry{Avril 2019 \\ Juillet 2020}
+	{Ingénieur Systèmes Embarqués}
+	{Savoir-Faire Linux}
+	{Rennes}
+	{}
+	{
 		\begin{itemize}
-			\item Architecture du réseau de test.
-			\item Installation des serveurs: DHCP, DNS, RADIUS, HTTP, FTP, RADVD \dots
-			\item Création d'interfaces web: Gestionnaire d'AP, Configuration IPv6 \dots
+		\item Création et intégration de BSP
+		\item Développement d'applications spécifique
+		\item Contributions au projet Yocto
 		\end{itemize}
-	\end{itemize}
-}
-\cventry{2010--2012}{Développement Système Embarqué}{Faiveley Transport}{Rennes}{via Elsys-Design}{
-	Couche applicative de commande d'ouverture de porte de train.
-	\begin{itemize}
-		\item Implémentation d'une architecture spécifié.
-		\item Relecture de code, en vue d'une certification SIL2.
-		\item Gestion et développement d'un second projet:
+		\textit{Linux},
+		\textit{Git},
+		\textit{Yocto},
+		\textit{C}, \textit{C++}, \textit{Python}
+	}
+\cventry{Août 2016 \\ Mars 2019}
+	{Ingénieur Systèmes Embarqués}
+	{Kerlink}
+	{Rennes}
+	{\textit{au nom de Elsys-Design}}
+	{
 		\begin{itemize}
-			\item Spécification de l'architecture.
-			\item Développement et documentation.
-			\item Tests sur maquette.
+		\item Mainteneur des applications LoRa
+		\item Intégration des packet forwarders LoRa de Semtech
+		\item Développement de solutions LoRa internes
 		\end{itemize}
-	\end{itemize}
-}
+		\textit{Linux},
+		\textit{Git},
+		\textit{Buildroot}, \textit{Yocto},
+		\textit{C}, \textit{C++},
+		\textit{Zeromq}, \textit{Protobuf},
+		\textit{LoRa}, \textit{IoT}
+	}
+\cventry{Juin 2015 \\ Juin 2016}
+	{Ingénieur Systèmes Embarqués}
+	{Syrlinks}
+	{Rennes}
+	{\textit{au nom de Elsys-Design}}
+	{
+		\begin{itemize}
+		\item Industrialisation du projet
+			\href{http://www.refimeve.fr}{REFIMEVE+}
+		\item Développement d'une carte capteur basée sur un STM32F4
+			utilisant FreeRTOS
+		\item Implémentation d'un pilote Iridium et du protocole ZMODEM
+		\item Création d'un daemon Linux sur un PC de surveillance
+		\end{itemize}
+		\textit{Stm32},
+		\textit{Linux},
+		\textit{Git}, \textit{Svn},
+		\textit{C}, \textit{Makefile},
+		\textit{FreeRTOS}, \textit{libopencm3},
+		\textit{Iridium}, \textit{Zmodem}
+	}
+\cventry{Novembre 2014 \\ Juin 2015}
+	{Ingénieur Systèmes Embarqués}
+	{Mitsubishi Electric}
+	{Rennes}
+	{\textit{au nom de Elsys-Design}}
+	{
+		\begin{itemize}
+		\item Développement d'un ordonnanceur Ethernet (IEEE 802.1Qbv)
+			avec une encapsulation CAN-Ethernet (IEEE P1722a)
+				sur une cible STM32F4 utilisant FreeRTOS
+		\item Afin de remplir la bande passante Ethernet, un flux vidéo
+			généré par un module caméra est utilisé
+		\end{itemize}
+		\textit{Stm32},
+		\textit{Linux},
+		\textit{C}, \textit{Makefile},
+		\textit{FreeRTOS}, \textit{libopencm3},
+		\textit{Ethernet}, \textit{CAN}
+	}
+\cventry{Février 2014 \\ Septembre 2014}
+	{Embedded System Integrator}
+	{Aviwest}
+	{Rennes}
+	{\textit{au nom de Elsys-Design}}
+	{
+		\begin{itemize}
+		\item Intégration de systèmes embarqués
+		\item Développement d'un gestionnaire de connexion Wi-Fi
+		\end{itemize}
+		\textit{Linux},
+		\textit{Svn},
+		\textit{Buildroot},
+		\textit{C}, \textit{Makefile},
+		\textit{Wi-Fi}
+	}
+\cventry{Décembre 2013 \\ Janvier 2014}
+	{Ingénieur Systèmes Embarqués}
+	{Sagemcom}
+	{Paris}
+	{\textit{au nom de Elsys-Design}}
+	{
+		\begin{itemize}
+		\item Intégration du Wi-Fi sur une set-top box
+		\item Conseiller pour la certification Wi-Fi
+		\end{itemize}
+		\textit{Linux},
+		\textit{Svn},
+		\textit{Buildroot},
+		\textit{C},
+		\textit{Wi-Fi}
+	}
+\cventry{Avril 2012 \\ Novembre 2013}
+	{Ingénieur Intégration Système - Wi-Fi}
+	{Intel Corporation}
+	{Nice}
+	{\textit{au nom de Elsys-Design}}
+	{
+		\begin{itemize}
+		\item Intégration Wi-Fi Android pour les plateformes Intel
+		\item Validation et certification Wi-Fi
+		\item Cours interne: IEEE 802.11n
+			- Design Details \& Protocol Analysis
+		\end{itemize}
+		\textit{Linux}, \textit{Android},
+		\textit{Git},
+		\textit{C}, \textit{C++},
+		\textit{Wi-Fi}
+	}
+\cventry{Août 2010 \\ Avril 2012}
+	{Ingénieur Systèmes Embarqués}
+	{Faiveley Transport}
+	{Rennes}
+	{\textit{au nom de Elsys-Design}}
+	{
+		\begin{itemize}
+		\item Développement de la couche applicative du contrôle des
+			portes de train
+		\item Spécification de l'architecture
+		\item Certification SIL2
+		\end{itemize}
+		\textit{Svn},
+		\textit{C}
+	}
 
 \subsection{Divers}
-\cventry{2010 (6 mois)}{Portage d'Android sur un Tablet PC}{Altran}{Rennes}{Projet de fin d'études}{
-	\begin{itemize}
-		\item Intégration du kernel Linux pour le processeur ST Nomadik 8815.
-		\item Modification de drivers Linux. Support de la NAND, du LCD \dots
-		\item Patch du kernel pour l'intégration d'Android: Binder, Logger, Low memory killer \dots
-		\item Mise en place d'un rootfs Busybox puis de celui d'android.
-	\end{itemize}
-}
-\cventry{2009 (2 mois)}{Étude du noyau Xenomai}{ENSEIRB-MATMECA}{Bordeaux}{Projet avancé}{
-	\begin{itemize}
-		\item Mise en \oe{}uvre de Xenomai sur PC x86.
-		\item Étude du portage de Xenomai sur un autre processeur.
-	\end{itemize}
-}
-\cventry{2009 (4 mois)}{R\&D dans la domotique}{Delta-Dore SA}{Bonnemain}{Stage}{
-	\begin{itemize}
-		\item Étude de la technologie RDS avec une carte de développement. Création d'un programme de mise à jour automatique de l'heure via RDS.
-		\item Étude du Wi-Fi. Création d'une passerelle Wi-Fi -- PF3D (protocole de domotique).
-	\end{itemize}
-}
+\cventry{2010 (6 mois)}
+	{Portage d'Android sur un Tablet PC}
+	{Altran}
+	{Rennes}
+	{\textit{Projet de fin d'études}}
+	{
+		\begin{itemize}
+		\item Intégration du kernel Linux pour le processeur ST Nomadik 8815
+		\item Modification du kernel pour l'intégration d'Android
+		\item Mise en place du rootfs d'Android
+		\end{itemize}
+		\textit{Linux}, \textit{Android},
+		\textit{Git},
+		\textit{C}
+	}
+\cventry{2009 (2 mois)}
+	{Étude du noyau Xenomai}
+	{ENSEIRB-MATMECA}
+	{Bordeaux}
+	{\textit{Projet avancé}}
+	{
+		\begin{itemize}
+		\item Mise en \oe{}uvre de Xenomai sur PC
+		\item Étude du portage de Xenomai sur une platforme Embarqué
+		\end{itemize}
+		\textit{Linux}, \textit{C}
+	}
 
 \clearpage
 
 \section{Éducation}
-\cventry{2007--2010}{Diplôme d'Ingénieur Électronique}{ENSEIRB-MATMECA}{Bordeaux}{}{Option Systèmes Embarqués.}
-\cventry{2005--2007}{CPGE}{Lycée Chateaubriand}{Rennes}{}{PCSI, suivi de PSI.}
-\cventry{2003--2005}{Baccalauréat Scientifique}{Lycée Chateaubriand}{Combourg}{}{Option Maths.}
+\cventry{2007--2010}
+	{Diplôme d'Ingénieur}
+	{ENSEIRB-MATMECA}
+	{Bordeaux}
+	{}
+	{Électronique - Option Systèmes Embarqués}
+\cventry{2005--2007}
+	{CPGE}
+	{Lycée Chateaubriand}
+	{Rennes}
+	{}
+	{
+		\begin{itemize}
+		\item PCSI (Physique, Chimie et Science de l'Ingénieur)
+		\item suivie de PSI* (Physique, Science de l'Ingénieur)
+		\end{itemize}
+	}
+\cventry{2003--2005}
+	{Baccalauréat}
+	{Lycée Chateaubriand}
+	{Combourg}
+	{}
+	{Série S (scientifique) - Option Maths}
 
 \section{Langues}
 \cvitemwithcomment{Anglais}{Courant}{TOEIC 795 (2009)}
 
 \section{Compétences Informatiques}
-\cvdoubleitem{Programmation}{C (expert), C++ (avancé)}{Script}{Shell (expert), Python}
-\cvdoubleitem{OS}{GNU/Linux, Android}{Web}{HTML/CSS, PHP, Javascipt}
-\cvitem{Mes outils}{VI, GIT, SVN, GCC, GDB, Valgrind}
+\cvitem{OS}{GNU/Linux, Debian, Android}
+\cvitem{Langages}{C (expert), C++ (advanced)}
+\cvitem{Scripts}{Shell (expert), Makefile (expert), Python (advanced)}
+\cvitem{Outils}{vim, git, gcc, gdb, valgrind}
 
 \end{document}
